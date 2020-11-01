@@ -175,14 +175,14 @@ for i in range(len(output_parsed)):
   # add leaf nodes 
   for i in range(len(current_config)):
     # if in source
-    if (current_config[i] in output_parsed[i][0]):
-      dim_21.append(current_config[i])
-      indices.append(output_parsed[i][0].find(current_config[i]))
+    if (current_cat[i] in output_parsed[i][1]):
+      dim_21.append(current_cat[i])
+      indices.append(output_parsed[i][1]))
       
   # add root node feature
-  dim_21.append(current_skeleton)
+  #dim_21.append(current_skeleton)
   root_features = current_skeleton
-  indices.append("Sitting Furniture")
+  #indices.append("Sitting Furniture")
   
 import pandas as pd  
 
@@ -194,7 +194,7 @@ square_edges = pd.DataFrame(
 )
 
 square_node_data = pd.DataFrame(
-    {"attributes": dim_21}, index=["a", "b", "c", "d"]
+    {"attributes": dim_21}, index=indices
 )
 
 frames = [square_edges, square_node_data]
@@ -207,7 +207,7 @@ square_edges = pd.DataFrame(
 )
 
 square_node_data = pd.DataFrame(
-    {"attributes": dim_21}, index=["a", "b", "c", "d"]
+    {"attributes": dim_21}, index=indices
 )
 
 frames = [square_edges, square_node_data]
